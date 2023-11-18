@@ -13,3 +13,6 @@ file(GLOB_RECURSE tiv_src src/*.cpp src/*.hpp)
 
 add_executable(tiv ${tiv_src})
 target_link_libraries(tiv PRIVATE glad glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} OpenImageIO::OpenImageIO glm::glm)
+
+install(TARGETS tiv)
+install(FILES tiv.desktop DESTINATION share/applications )
