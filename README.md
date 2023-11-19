@@ -1,7 +1,7 @@
 # tiv
 
 tiv is an image viewer that allows you to view gigapixel images
-
+![img.png](img.png)
 ## Getting Started
 
 To get tiv you need to build it yourself
