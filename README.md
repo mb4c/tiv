@@ -6,8 +6,7 @@ tiv is an image viewer that allows you to view gigapixel images
 
 To get tiv you need to build it yourself
 
-### Prerequisites
-You need to install the following libraries:
+### Dependencies
 - glfw3 
 - glm
 - OpenImageIO
