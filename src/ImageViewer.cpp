@@ -200,10 +200,6 @@ void ImageViewer::LoadImage(const std::string& path)
 			ROI roiActual(0, tileWidthActual, 0, tileHeightActual);
 			ImageBufAlgo::cut(outTile, m_LoadedImage, roi);
 
-			if (outTile.nchannels() == 4)
-			{
-				outTile = ImageBufAlgo::channels(outTile, 3, {});
-			}
 			if (outTile.nchannels() == 3)
 			{
 				ImageBuf alpha;
