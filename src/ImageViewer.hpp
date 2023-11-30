@@ -56,6 +56,9 @@ private:
 	void GenerateBackground();
 	static ImageBuf GenerateCheckerImage(int width, int height);
 
+	static float Normalize(float input, float min, float max);
+	static float EaseOutQuint(float x);
+
 	glm::mat4 m_View = glm::mat4(1.0f);
 	glm::mat4 m_Projection{};
 };

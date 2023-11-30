@@ -125,7 +125,7 @@ void ImageViewer::OnResize()
 
 void ImageViewer::PanAndZoom()
 {
-	m_Zoom += -(float)m_Input.GetScrollDelta();
+	m_Zoom += -(float)m_Input.GetScrollDelta() * EaseOutQuint(Normalize(m_Zoom, 0.01f, 5.0f));
 	m_Zoom = glm::clamp(m_Zoom, 0.01f, 10.0f);
 
 	m_CurrentZoom = lerp(m_CurrentZoom, m_Zoom, 0.2f);
@@ -262,4 +262,14 @@ void ImageViewer::GenerateBackground()
 	m_CheckerTexture = Texture(m_CheckerImage);
 	m_BackgroundTile = Tile(m_CheckerTexture, m_BgShader);
 	m_BackgroundTile.transform = glm::translate(m_BackgroundTile.transform, {0,0,0});
+}
+
+float ImageViewer::Normalize(float input, float min, float max)
+{
+	return (input - min) / (max - min);
+}
+
+float ImageViewer::EaseOutQuint(float x)
+{
+	return 1 - std::pow(1 - x, 5);
 }
